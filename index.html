@@ -10,15 +10,18 @@
     </head>
     <body>
         <!--Sintaxis basica de Vue.js-->
-        <div id="app"></div>
+        <!--Tomar notas de notion de las funciones y la estructura basica de vue
+        -->
+        <div id="app">{{ text }}</div>
         <script>
-            Vue.createApp({
+            const vm = Vue.createApp({
                 data(){
                     return{
-                        
+                        text: "Hola Vue"
                     };
                 }
-            }).mout("#app");
+            }).mount("#app");
+            console.log(vm);
         </script>
     </body>
 </html>
