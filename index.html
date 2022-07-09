@@ -9,16 +9,17 @@
         <title>Document</title>
     </head>
     <body>
-        <div id="app"></div>
+        <div id="app"> <!--Aqui como va a ser un template de vue.js ya no va si no que se mete como template<img v-bind:src="img" v-bind:alt="img" /> -->
+        </div>
         <script>
             const vm = Vue.createApp({
                 data(){
                     return{
-                        text: "Hola Vue"
+                        img: "https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/5a52c72d-80fc-4c3f-bc24-52b09ab9896a_2560x1440-12a1d9b80efd050055faa72feee71f8e?h=270&resize=1&w=480" // va a contener la url a una imagen 
                     };
                 },
-                template: `<div v-once v-text="text"></div>` /*v-once es una directiva que nos permite conservar el primer
-                valor que se le da a la variable y no nos permite modificarla*/
+                //Aqui se crea el template
+                template: `<img v-bind:src="img" v-bind:alt="img" />`
             }).mount("#app");
             console.log(vm);
         </script>
