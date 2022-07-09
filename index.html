@@ -17,7 +17,8 @@
                         text: "Hola Vue"
                     };
                 },
-                template: `<div v-text="text"></div>`
+                template: `<div v-once v-text="text"></div>` /*v-once es una directiva que nos permite conservar el primer
+                valor que se le da a la variable y no nos permite modificarla*/
             }).mount("#app");
             console.log(vm);
         </script>
