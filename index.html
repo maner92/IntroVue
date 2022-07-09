@@ -9,17 +9,15 @@
         <title>Document</title>
     </head>
     <body>
-        <!--Sintaxis basica de Vue.js-->
-        <!--Tomar notas de notion de las funciones y la estructura basica de vue
-        -->
-        <div id="app">{{ text }}</div>
+        <div id="app"></div>
         <script>
             const vm = Vue.createApp({
                 data(){
                     return{
                         text: "Hola Vue"
                     };
-                }
+                },
+                template: `<div v-text="text"></div>`
             }).mount("#app");
             console.log(vm);
         </script>
