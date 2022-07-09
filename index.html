@@ -14,11 +14,10 @@
             const vm = Vue.createApp({
                 data(){
                     return{
-                        text: "Hola Vue"
+                        text: "<h1>Hola Vue</h1>"
                     };
                 },
-                template: `<div v-once v-text="text"></div>` /*v-once es una directiva que nos permite conservar el primer
-                valor que se le da a la variable y no nos permite modificarla*/
+                template: `<div v-html="text"></div>` /*v-html nos permite usar tags o elementos html*/
             }).mount("#app");
             console.log(vm);
         </script>
