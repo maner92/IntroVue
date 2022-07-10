@@ -15,11 +15,13 @@
             const vm = Vue.createApp({
                 data(){
                     return{
+                        attr: "src",
+                        attr1: "alt",
                         img: "https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/5a52c72d-80fc-4c3f-bc24-52b09ab9896a_2560x1440-12a1d9b80efd050055faa72feee71f8e?h=270&resize=1&w=480" // va a contener la url a una imagen 
                     };
                 },
                 //Aqui se crea el template
-                template: `<img v-bind:src="img" v-bind:alt="img" />`
+                template: `<img v-bind:[attr]="img" v-bind:[attr]="img"/>`
             }).mount("#app");
             console.log(vm);
         </script>
