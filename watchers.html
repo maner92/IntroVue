@@ -6,26 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--Aqui se llama el script de Vue.js-->
         <script src="https://unpkg.com/vue@3"></script>
-        <title>Document</title>
+        <title>Watchers</title>
     </head>
     <body>
         <div id="app"></div>
         <script>
-            const vm = Vue.createApp({
+            const watchers = Vue.createApp({
                 data(){
                     return{
-                        evt: "submit",
-                        counter: 0,
-
+                        text: "Hola vue"
                     };
                 },
-                methods: {//Se crean los metodos o funciones para llamar en nustro componente
-                    submit(e){
-                        this.counter++;
+                watch: {
+                    text(value, old){
+                        console.log("Watcher!", value, old, this.text);
                     }
                 },
-                //Aqui se crea el template
-                template: `<form v-on:[evt].prev="submit"><button >{{ counter }}</button></form>`
+                template: `
+                {{ text }}
+                `
             }).mount("#app");
         </script>
     </body>
