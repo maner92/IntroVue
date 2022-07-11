@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Aqui se llama el script de Vue.js-->
+        <script src="https://unpkg.com/vue@3"></script>
+        <title>Document</title>
+    </head>
+        <div id="app"></div>
+        <script>
+            const eje = Vue.createApp({
+                data(){
+                    return{
+                        text: "Inicia Sesion",
+                        open: false,
+                        username: "",
+                    };
+                },
+                watch:{
+                    open(value){
+                        if (value){
+                            this.text = "Cierra Sesion"
+                        } else {
+                            this.text = "Accede a tu cuenta"
+                            this.username = ""
+                        }
+                    }
+                },
+                computed: {
+                    styles(){
+                        return this.open ? ['open'] : ['closed'];
+                    }
+                },
+                template: `
+                    <div class="container" :class="styles">
+                        <h2>{{ text }}</h2>
+                        <div v-if="open">
+                            <p> Hola, {{ username }}</p>    
+                        </div>
+                        <div v-else>
+                            <label> Username </label>
+                            <input type="text" v-model="username" />
+                        </div>
+                        <button @click="open = !open">
+                            <div v-if="!open"> Acceder </div>
+                            <div v-else> Salir </div>
+                        </button>
+                    </div>
+                `
+            }).mount("#app");
+            console.log(eje);
+        </script>
+        <style>
+            html, body {
+                height: 100vh;
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            #app, .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+            }
+            button {
+                margin-top: 24px;
+                border: none;
+                background-color: white;
+                padding: 8px 24px;
+                border-radius: 12px;
+            }
+            .closed {
+                background-color: red;
+            }
+            .open {
+                background-color: green;
+            }
+        </style>
+    </body>
+</html>
