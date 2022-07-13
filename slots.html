@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Aqui se llama el script de Vue.js-->
+        <script src="https://unpkg.com/vue@3"></script>
+        <title>Document</title>
+    </head>
+        <div id="app"></div>
+        <script>
+            const app = Vue.createApp({
+                template: `
+                <div> 
+                    <v-layout>
+                        <template v-slot:header>
+                            <button>Titulo</button>
+                        </template>
+                        <template v-slot:content>
+                            Lore ispum dulir sit amet
+                        </template>
+                    </v-layout>
+                    Lorem ispum dolor
+                </div>
+                `
+            });
+            app.component("v-layout",{
+                template:`
+                <header>
+                    <slot name="header"></slot>
+                </header>
+                <div>
+                    <slot name="content"></slot>
+                </div>
+                `
+            });
+
+            //Creacion de un header
+            /*app.component("v-header",{
+                template:`
+                <header>
+                    <slot></slot>
+                </header>
+                `
+            });*/
+
+
+            const vm = app.mount("#app");
+        </script>
+    </body>
+</html>

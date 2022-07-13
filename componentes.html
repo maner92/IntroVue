@@ -55,7 +55,11 @@
                         <div v-if="open">
                             <p> Hola, {{ username }}</p>
                             <div class="list">
-                                <item v-for="(item, i) in posts" : key="i" : post="item"/>
+                                <item v-for="(item, i)
+                                in posts"
+                                :key="i"
+                                :post="item"
+                                />
                             </div>    
                         </div>
                         <div v-else>
@@ -79,6 +83,7 @@
                 </div>
                 `
             })
+
             const vm = app.mount("#app");
         </script>
         <style>
